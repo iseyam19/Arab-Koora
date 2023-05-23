@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TableRow android:padding="5dp" >
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="برشلونة"
+        android:textColor="@color/black"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="برشلونة"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="17"
+        android:layout_weight="1"
+        android:textColor="@color/black"
+        android:gravity="center_horizontal"
+        />
+    </TableRow>
+
+</TableLayout>
