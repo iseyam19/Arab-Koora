@@ -28,6 +28,12 @@ public  class MainActivity extends AppCompatActivity implements BottomNavigation
 
 
 
+
+
+
+
+
+
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
         bottomNavigationView.setSelectedItemId(R.id.news);
