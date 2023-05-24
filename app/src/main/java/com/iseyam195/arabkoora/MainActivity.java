@@ -40,6 +40,8 @@ public  class MainActivity extends AppCompatActivity implements BottomNavigation
 //        bottomNavigationView.getOrCreateBadge()
 
 
+        System.out.println();
+
 
     }
 
