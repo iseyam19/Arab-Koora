@@ -1,27 +1,31 @@
 package com.iseyam195.arabkoora.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.iseyam195.arabkoora.LeaguesAllActivity;
 import com.iseyam195.arabkoora.R;
 import com.iseyam195.arabkoora.objects.Country;
+import com.iseyam195.arabkoora.objects.CountryData;
 
 import java.util.List;
 
 public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryHolder> {
     Context context ;
-    List<Country>countries ;
+    List<CountryData>countries ;
 
-    public CountryAdapter(Context context, List<Country> countries) {
+    public CountryAdapter(Context context, List<CountryData> countries) {
         this.context = context;
         this.countries = countries;
     }
@@ -36,11 +40,28 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryH
 
     @Override
     public void onBindViewHolder(@NonNull CountryAdapter.CountryHolder holder, int position) {
-    Country country  = countries.get(position);
-    Log.d("ttt","Country" + country.getValue()); ;
-    Log.d("ttt","Country" + country.getKey()); ;
-        holder.countrysss.setText(country.getValue());
+    CountryData country  = countries.get(position);
+   /* Log.d("ttt","Country" + country.getValue()); ;
+    Log.d("ttt","Country" + country.getKey()); ;*/
+        holder.countrysss.setText(country.getCountry().getValue());
+
+        holder.itemView.setOnClickListener(view -> {
+
+//            Toast.makeText(context, country.getCountry().getValue(), Toast.LENGTH_SHORT).show();
+
+
+
+            Intent intent = new Intent(context, LeaguesAllActivity.class);
+
+
+                context.startActivity(intent);
+
+
+
+        });
+
     }
+
 
     @Override
     public int getItemCount() {

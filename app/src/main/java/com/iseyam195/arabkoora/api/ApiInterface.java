@@ -2,6 +2,7 @@ package com.iseyam195.arabkoora.api;
 
 
 import com.iseyam195.arabkoora.objects.Country;
+import com.iseyam195.arabkoora.objects.OtherList;
 import com.iseyam195.arabkoora.objects.Others;
 
 import java.util.List;
@@ -13,7 +14,11 @@ public interface ApiInterface {
 //     Call<List<Country>> getOthers();
 
     @GET("leagues")
-    Call<List<Country>> getCountries();
+    Call<OtherList> getCountries();
+
+
+/* @GET("leagues")
+    Call<List<Others>> getCountriesss();*/
 
 
 }
