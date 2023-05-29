@@ -16,7 +16,12 @@ import com.iseyam195.arabkoora.R;
 import com.iseyam195.arabkoora.api.ApiInterface;
 import com.iseyam195.arabkoora.api.RetrofitClient;
 import com.iseyam195.arabkoora.objects.Country;
+import com.iseyam195.arabkoora.objects.Others;
 
+
+import org.json.JSONArray;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,27 +50,54 @@ public class CountriesFragment extends Fragment {
         adapter = new CountryAdapter(getContext(), countries);
 
         recyclerView.setAdapter(adapter);
-        Call<Country> call = apiInterface.getCountries();
-        call.enqueue(new Callback<Country>() {
+        Call<List<Country>> call = apiInterface.getCountries();
+        call.enqueue(new Callback<List<Country>>() {
             @Override
-            public void onResponse(Call<Country> call, Response<Country> response) {
-                if (response.isSuccessful()) {
-                    Country data = response.body();
-                    Log.d("ttt", " Data " + countries.size());
-                    assert data != null;
-                    countries.addAll(data.getData()); /// Add retrieved data to the list
-                    adapter.notifyDataSetChanged();
-                } else {
-                    // Handle error response
+            public void onResponse(Call<List<Country>> call, Response<List<Country>> response) {
+                List<Country> others = response.body();
+                for (Country other : others) {
+                    String country = other.getKey();
+
+
+                    // Process the data as needed
+                    Log.d("ttt","Country Key: " + country);
+
+                }
+                JSONArray jsonArray = new JSONArray();
+
+                String[] strArr = new String[jsonArray.length()];
+
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    strArr[i] = jsonArray.toString();
+                    Log.d("ttt","Country Keddddy: " + strArr[i]);
+
                 }
             }
 
             @Override
-            public void onFailure(Call<Country> call, Throwable t) {
-                Log.d("ttt","Error "+ t.getMessage());
+            public void onFailure(Call<List<Country>> call, Throwable t) {
+                Log.d("ttt","Error  :     " +t.getMessage()) ;
 
             }
         });
+        
+//        Call<List<Country>> call = apiInterface.getCountries();
+//        call.enqueue(new Callback<List<Country>>() {
+//            @Override
+//            public void onResponse(Call<List<Country>> call, Response<List<Country>> response) {
+//                Country country = new Country();
+////                countries = response.body().addAll(country.getKey());
+//                Log.d("ttt","Data :     " + country.getKey()) ;
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<Country>> call, Throwable t) {
+//                Log.d("ttt","Error  :     " +t.getMessage()) ;
+//
+//            }
+//        });
+
         return view;
     }
 }
