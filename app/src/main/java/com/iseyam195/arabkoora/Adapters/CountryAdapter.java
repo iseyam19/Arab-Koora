@@ -44,16 +44,11 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryH
    /* Log.d("ttt","Country" + country.getValue()); ;
     Log.d("ttt","Country" + country.getKey()); ;*/
         holder.countrysss.setText(country.getCountry().getValue());
-
+        String key = country.getCountry().getKey();
         holder.itemView.setOnClickListener(view -> {
-
-//            Toast.makeText(context, country.getCountry().getValue(), Toast.LENGTH_SHORT).show();
-
-
-
             Intent intent = new Intent(context, LeaguesAllActivity.class);
-
-
+            Log.d("ttt","Lega :"+ country.getCountry().getKey());
+            intent.putExtra("key",key);
                 context.startActivity(intent);
 
 
@@ -68,7 +63,7 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryH
         return countries.size();
     }
 
-    public class CountryHolder extends RecyclerView.ViewHolder {
+    public static class CountryHolder extends RecyclerView.ViewHolder {
         TextView countrysss ;
         ConstraintLayout layout  ;
 

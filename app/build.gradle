@@ -48,6 +48,9 @@ dependencies {
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.25'
     implementation 'com.google.code.gson:gson:2.8.8'
 
+    //Picasso for image
+    implementation 'com.squareup.picasso:picasso:2.8'
+
 
 
 }
